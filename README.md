@@ -45,7 +45,7 @@ CustomerService
  http://localhost:8080/customer
 
  
-TODO : Run on different servers
+TODO : Take out server specific configuration so anyone can use and configure for standalone server
 ====
 
  Resources
