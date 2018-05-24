@@ -11,8 +11,8 @@ CustomerService
  or Web Profile). A persistence unit is defined and most of the database datasource
  for this project is defined in the tomee.xml residing in the conf folder of a Tomee server. 
 
- NB: Make sure you have MySQL database installed on your machine or whichever database of your choice and the relevant drivers
- see http://tomee.apache.org/containers-and-resources.htm
+ NB: Make sure you have MySQL database installed on your machine or whichever database of your choice and the relevant 
+ drivers see http://tomee.apache.org/containers-and-resources.htm
  Database configuration that needs to be copied into the ${CATALINA_HOME}/conf/tomee.xml 
  ===================
 
@@ -28,6 +28,7 @@ CustomerService
  System requirements
  ===================
 
+ Must have Tomee installed : http://tomee.apache.org/
  All you need to run this project is Java 5.0 (Java SDK 1.5) or greater and
  Maven 2.0.10 or greater. This application is setup to be run on a Java EE 7
  certified application server. It has been tested with Tomee plus 7.0.0 M1
@@ -39,8 +40,8 @@ CustomerService
  Deploying the application
  =========================
 
-
- Start Tomee. The application will be running at the following URL:
+ Start Tomee.  Build the project and deploy.
+ The application will be running at the following URL:
 
  http://localhost:8080/customer
 
