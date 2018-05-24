@@ -10,7 +10,6 @@ CustomerService
  JAX-WS and JPA 2.1 that can run on a certified application server (Complete
  or Web Profile). A persistence unit is defined and most of the database datasource
  for this project is defined in the tomee.xml residing in the conf folder of a Tomee server. 
-
  NB: Make sure you have MySQL database installed on your machine or whichever database of your choice and the relevant 
  drivers see http://tomee.apache.org/containers-and-resources.htm
  Database configuration that needs to be copied into the ${CATALINA_HOME}/conf/tomee.xml 
@@ -46,8 +45,8 @@ CustomerService
  http://localhost:8080/customer
 
  
-TODO : Take out server specific configuration so anyone can use and configure for standalone server
-====
+ TODO : Take out server specific configuration so anyone can use and configure for standalone server
+ ====
 
  Resources
  =========
