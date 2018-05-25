@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <h1>Customer App!</h1>
+<!--https://showcase.bootsfaces.net/forms/inputText.jsf-->
+        <h:form id="addCustomer" rendered="#{not customerController.edit}">
+            <table>
+                <tr>
+                    <th style="text-align: right;">
+                        <h:outputLabel for="name" value="Name:"/>
+                    </th>
+                    <td>
+                        <h:inputText id="name" value="#{customerController.customer.name}"/>
+                        <h:message for="name" errorClass="invalid"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right;">
+                        <h:outputLabel for="surname" value="Surname"/>
+                    </th>
+                    <td>
+                        <h:inputText id="surname" value="#{customerController.customer.surname}"/>
+                        <h:message for="surname" errorClass="invalid"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: right;">
+                        <h:outputLabel for="age" value="Age:"/>
+                    </th>
+                    <td>
+                        <h:inputText id="age" value="#{customerController.customer.age}"/>
+                        <h:message for="age" errorClass="invalid"/>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <h:commandButton action="#{customerController.addCustomer()}" value="Add"/>
+                <h:outputText value=" All clear!" rendered="#{facesContext.postback and empty facesContext.messageList}" style="color: green;"/>
+            </p>
+        </h:form>
+        <!--Manage exisiting customers-->
+        <h:form id="existingCustomers" rendered="#{not customerController.edit and not empty customerController.customers}">
+            <h2>Existing Customers</h2>
+            <h:dataTable var="customer" value="#{customerController.customers}">
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                        #{customer.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Surname</f:facet>
+                        #{customer.surname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Age</f:facet>
+                        #{customer.age}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:commandButton action="#{customerController.deleteCustomer(customer)}" value="Delete" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Edit</f:facet>
+                    <h:commandButton action="#{customerController.editCustomer(customer)}" value="Edit" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <!-- Edit customer -->
+        <h:form id="editCustomer" rendered="#{customerController.edit}">
+            <h2>Edit #{customerController.customer.name}</h2>
+
+            <table >
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Age</th> 
+                </tr>
+                <tr>
+                    <td> 
+                        <h:inputText id="name" value="#{customerController.customer.name}"/>
+                        <h:message for="name" errorClass="invalid"/>
+                    </td>
+                    <td> 
+                        <h:inputText id="surname" value="#{customerController.customer.surname}"/>
+                        <h:message for="surname" errorClass="invalid"/>
+                    </td> 
+                    <td>
+                        <h:inputText id="age" value="#{customerController.customer.age}"/>
+                        <h:message for="age" errorClass="invalid"/>
+                    </td>
+                </tr>
+            </table>
+            <h:commandButton action="#{customerController.saveCustomer()}" value="Update" />
+            <h:commandButton action="#{customerController.cancel()}" value="Cancel" immediate="true"/>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--https://stackoverflow.com/questions/19454777/not-able-to-deploy-context-file-broken-->
+<Context reloadable="true" privileged="true" path="/customer"  jndiExceptionOnFailedWrite="false">
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+    <!-- disable storage of sessions across restarts -->
+    <Manager pathname=""/>
+   
+    <!-- Enable Comet connection tracking (provides events
+    on session expiration as well as webapp lifecycle) -->
+    <Valve className="org.apache.catalina.valves.CometConnectionManagerValve" />
+    
+</Context>

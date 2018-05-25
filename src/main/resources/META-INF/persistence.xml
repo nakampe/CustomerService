@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="       http://java.sun.com/xml/ns/persistence       http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+<!--https://stackoverflow.com/questions/19500042/configuring-data-source-tomee-xml-persistence-xml-->   
+    <persistence-unit  name="customerApp">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <non-jta-data-source>customerUnmanaged</non-jta-data-source>
+        <jta-data-source>customerApp</jta-data-source>
+        <properties>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
+            <!--<property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/customer"/>-->
+            <!--<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>-->
+            <!--<property name="openjpa.ConnectionUserName" value="root"/>-->
+            <!--<property name="openjpa.ConnectionPassword" value="cutting2013"/>-->
+            <!--<property name="open.jpa.auto" value="update" />-->
+            <property name="openjpa.Log" value="SQL=TRACE"/>
+            <property name="openejb.validation.output.level" value="VERBOSE"/>
+        </properties>
+    </persistence-unit>
+</persistence>
