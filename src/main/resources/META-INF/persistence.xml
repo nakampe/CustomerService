@@ -7,11 +7,6 @@
         <jta-data-source>customerApp</jta-data-source>
         <properties>
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
-            <!--<property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/customer"/>-->
-            <!--<property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>-->
-            <!--<property name="openjpa.ConnectionUserName" value="root"/>-->
-            <!--<property name="openjpa.ConnectionPassword" value="cutting2013"/>-->
-            <!--<property name="open.jpa.auto" value="update" />-->
             <property name="openjpa.Log" value="SQL=TRACE"/>
             <property name="openejb.validation.output.level" value="VERBOSE"/>
         </properties>
