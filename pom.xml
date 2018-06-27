@@ -34,7 +34,14 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
@@ -74,24 +81,24 @@
                 </configuration>
             </plugin>
             <!-- Configure the Tomee AS Maven deploy plugin -->
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.openejb.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
-                <version>1.7.1</version>
-                <configuration>
+                <version>1.7.1</version>-->
+<!--                <configuration>
                     <tomeeVersion>1.7.1</tomeeVersion>
                     <tomeeClassifier>plus</tomeeClassifier>
-                    <!-- if you want to update each time you build with mvn compile -->
+                     if you want to update each time you build with mvn compile 
                     <synchronization>
                         <extensions>
-                            <extension>.class</extension> <!--Update each time you build with mvn compile -->
+                            <extension>.class</extension> Update each time you build with mvn compile 
                         </extensions>
                     </synchronization>
                     <reloadOnUpdate>true</reloadOnUpdate>
                     <source>1.8</source>
                     <target>1.8</target>
-                </configuration>
-                <executions>
+                </configuration>-->
+<!--                <executions>
                     <execution>
                         <id>startTomee</id>
                         <phase>pre-integration-test</phase>
@@ -111,46 +118,46 @@
                             </goal>
                         </goals>
                     </execution>
-                </executions>
-            </plugin>
+                </executions>-->
+<!--            </plugin>
             
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
+                <version>1.8</version>-->
+<!--                <executions>
                     <execution>
                         <id>copy-test-persistence</id>
                         <phase>process-test-resources</phase>
                         <configuration>
                             <tasks>
-                                <!--backup the "proper" files-->
+                                backup the "proper" files
                                 <copy file="${project.build.outputDirectory}/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml.proper"/>
 
-                                <!--replace the "proper" files with the "test" version-->
-                                <copy file="${project.build.testOutputDirectory}/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml"/>
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>restore-persistence</id>
-                        <phase>prepare-package</phase>
-                        <configuration>
-                            <tasks>
-                                <!--restore the "proper" files -->
-                                <copy file="${project.build.outputDirectory}/META-INF/persistence.xml.proper" tofile="${project.build.outputDirectory}/META-INF/persistence.xml"/>
-                            </tasks>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+                            replace the "proper" files with the "test" version
+                            <copy file="${project.build.testOutputDirectory}/META-INF/persistence.xml" tofile="${project.build.outputDirectory}/META-INF/persistence.xml"/>
+                        </tasks>
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>restore-persistence</id>
+                    <phase>prepare-package</phase>
+                    <configuration>
+                        <tasks>
+                            restore the "proper" files 
+                            <copy file="${project.build.outputDirectory}/META-INF/persistence.xml.proper" tofile="${project.build.outputDirectory}/META-INF/persistence.xml"/>
+                        </tasks>
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+            </executions>-->
+            <!--</plugin>-->
             
-            <plugin>
+            <!--            <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>2.4.1</version>
                 <executions>
@@ -162,8 +169,14 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
+        <!--        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>-->
     </build>
 
 </project>
